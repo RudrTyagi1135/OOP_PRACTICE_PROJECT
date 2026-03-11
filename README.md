@@ -1,70 +1,74 @@
-NLP-as-a-Service — CLI-Based NLP Dashboard
+🚀 NLP-as-a-Service — CLI-Based NLP Dashboard
 
-An interactive Natural Language Processing (NLP) toolkit built as a menu-driven CLI application inside Google Colab, enabling users to perform advanced text analysis tasks such as Named Entity Recognition, Language Detection, and Emotion Analysis using cloud-hosted AI models.
 
-Project Overview
+An interactive Natural Language Processing toolkit built as a menu-driven CLI application inside Google Colab.
 
-This project demonstrates how multiple NLP models can be integrated into a single interactive system using external AI APIs.
-
-The application runs inside Google Colab and provides a structured command-line interface (CLI) where users can:
-
-register and authenticate
-
-submit text for analysis
-
-receive structured NLP insights
-
-The system simulates a mini NLP platform, showcasing API integration, OOP architecture, and response parsing logic.
-
-Key Features
-
-Interactive CLI Dashboard
-Menu-driven NLP interface designed for the Google Colab console.
-
-User Authentication Simulation
-In-memory user database with registration and login logic.
-
-Multi-Model NLP Processing
+The system allows users to perform advanced NLP tasks such as:
 
 Named Entity Recognition
 
-Emotion Detection
+Emotion Analysis
 
-Language Identification
+Language Detection
 
-Intelligent Output Processing
-Parses model responses and extracts the most probable emotion label rather than displaying raw JSON.
+All powered by cloud-hosted AI models via NLPCloud APIs.
 
-Why These AI Models?
+📌 Project Overview
+
+This project demonstrates how multiple NLP models can be integrated into a single interactive system.
+
+The application runs inside Google Colab and provides a structured command-line interface (CLI) where users can:
+
+🔐 register and authenticate
+
+📝 submit text for analysis
+
+🤖 receive structured NLP insights
+
+The project simulates a mini NLP platform, showcasing:
+
+API integration
+
+Object-Oriented Programming
+
+Response parsing logic
+
+✨ Key Features
+Feature	Description
+🖥 Interactive CLI	Menu-driven NLP interface inside Google Colab
+🔐 User Authentication	Simulated login/register system using in-memory database
+🤖 Multi-Model NLP	NER, Emotion Detection, and Language Identification
+📊 Smart Output Parsing	Extracts the dominant emotion from model responses
+🧠 AI Models Used
 GPT-OSS-120B — Named Entity Recognition
 
-Reason for selection:
+Why this model?
 
-Large parameter size improves contextual understanding
+Large parameter size enables better contextual understanding
 
-More accurate extraction of complex entities compared to lightweight models
+Accurate extraction of complex entities
 
-Handles ambiguous phrases effectively
+Performs better than lightweight local NER models
 
-Used for identifying:
+Entities detected include:
 
-organizations
+Person
 
-locations
+Organization
 
-persons
+Location
 
-domain-specific entities
+Custom entity queries
 
-DistilBERT Emotion Model
+DistilBERT — Emotion Detection
 
-Standard sentiment analysis typically returns only:
+Traditional sentiment analysis only outputs:
 
 Positive
 
 Negative
 
-This model provides fine-grained emotional classification, including:
+DistilBERT enables fine-grained emotional classification such as:
 
 Joy
 
@@ -78,11 +82,11 @@ Surprise
 
 Neutral
 
-This produces richer psychological interpretation of text.
+This provides richer emotional insights from text.
 
-Python-LangDetect
+Python-LangDetect — Language Identification
 
-Selected because it is:
+Chosen because it is:
 
 lightweight
 
@@ -90,96 +94,93 @@ fast
 
 optimized for character-level language detection
 
-Supports 50+ languages with minimal computational overhead.
+Supports detection across 50+ languages.
 
-Tech Stack
-Layer	Technology
-Programming Language	Python
-Development Environment	Google Colab
-NLP API Provider	NLPCloud
-Architecture	Object-Oriented Python
-Data Handling	JSON / Dictionary Parsing
-Interface	CLI-based interaction
-Application Architecture
+🧰 Tech Stack
+| Layer                   | Technology                  |
+| ----------------------- | --------------------------- |
+| Programming             | Python                      |
+| Development Environment | Google Colab                |
+| NLP API Provider        | NLPCloud                    |
+| Architecture            | Object-Oriented Programming |
+| Data Handling           | JSON Parsing                |
+| Interface               | CLI                         |
 
-The entire application is encapsulated in a single class architecture.
 
-Core Class
-NLPAPP
-
-Responsibilities:
-
-user authentication
-
-menu navigation
-
-API interaction
-
-response processing
-
-result display
-
-System workflow:
+🏗 Application Architecture
 
 User Input
-   ↓
+     │
+     ▼
 CLI Menu Interface
-   ↓
-NLPAPP Controller
-   ↓
+     │
+     ▼
+NLPAPP Controller (Python Class)
+     │
+     ▼
 NLPCloud API
-   ↓
+     │
+     ▼
 Response Processing
-   ↓
-Structured Output
-Core Logic — Dominant Emotion Extraction
+     │
+     ▼
+User-Friendly Output
 
-Instead of returning raw API output, the application extracts the emotion with the highest confidence score.
 
-# Extract emotion scores
+⚙ Core Logic — Dominant Emotion Extraction
+
+Instead of printing raw JSON responses, the application extracts the emotion with the highest confidence score.
+
 scores = [i['score'] for i in response['scored_labels']]
 
-# Identify highest score index
 index = sorted(list(enumerate(scores)), key=lambda x: x[1], reverse=True)[0][0]
 
-# Print dominant emotion
 print(response['scored_labels'][index]['label'])
 
-This improves user readability and application usability.
 
-API Implementation
+This ensures clear and interpretable output for the user.
 
-The project integrates multiple NLPCloud endpoints.
 
+
+🔌 API Endpoints Used
 Named Entity Recognition
 client.entities(para, searched_entity=word)
+
 Emotion Detection
 client.sentiment(para)
+
 Language Detection
 client.langdetection(para)
-How to Run the Project
-1. Open Google Colab
+
+
+🚀 How to Run the Project
+1️⃣ Open Google Colab
 
 Create a new notebook.
 
-2. Install Required Library
+2️⃣ Install Required Library
+
 !pip install nlpcloud
-3. Paste Application Code
 
-Copy the NLPAPP class implementation into a Colab cell.
+3️⃣ Paste Application Code
 
-4. Configure API Key
+Copy the NLPAPP class implementation into a notebook cell.
 
-Insert your NLPCloud API token during client initialization.
+4️⃣ Add Your API Key
 
-5. Run the Application
+Insert your NLPCloud API token when initializing the client.
+
+5️⃣ Start the Application
+
 obj = NLPAPP()
 
-Follow the CLI prompts in the input box to interact with the system.
 
-Key Learning Outcomes
+Use the CLI input prompts to navigate the system.
 
-This project demonstrates practical skills in:
+
+📚 Key Learning Outcomes
+
+This project demonstrates practical experience in:
 
 Object-Oriented Programming in Python
 
@@ -187,29 +188,31 @@ REST API integration
 
 Multi-model AI system design
 
-JSON response parsing and data manipulation
+JSON response parsing
 
 CLI application development
 
-Future Improvements
+🔮 Future Improvements
 
-Planned enhancements include:
+Planned upgrades:
 
-Secure password entry using getpass
+🔐 Password masking using getpass
 
-Persistent user storage via Google Drive integration
+💾 Persistent user storage with Google Drive
 
-Result export to CSV / TXT files
+📁 Export results to CSV / TXT
 
-Deployment as a web application using Streamlit
+🌐 Convert CLI tool into Streamlit web app
 
-Support for additional NLP tasks such as summarization and translation
+➕ Add NLP tasks like text summarization and translation
 
-Author
+👨‍💻 Author
 
-Rudra
-AWS ML Engineer | AI Systems Builder
+Rudra Tyagi
 
-License
+AI / ML Engineer
+AWS & Machine Learning Enthusiast
 
-This project is released under the MIT License.
+📄 License
+
+This project is licensed under the MIT License.
