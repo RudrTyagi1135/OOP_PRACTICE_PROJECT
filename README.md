@@ -1,4 +1,4 @@
-🚀 NLP-as-a-Service — CLI-Based NLP Dashboard
+**🚀 NLP-as-a-Service — CLI-Based NLP Dashboard**
 
 
 An interactive Natural Language Processing toolkit built as a menu-driven CLI application inside Google Colab.
@@ -13,7 +13,7 @@ Language Detection
 
 All powered by cloud-hosted AI models via NLPCloud APIs.
 
-📌 Project Overview
+**📌 Project Overview**
 
 This project demonstrates how multiple NLP models can be integrated into a single interactive system.
 
@@ -33,14 +33,18 @@ Object-Oriented Programming
 
 Response parsing logic
 
-✨ Key Features
-Feature	Description
-🖥 Interactive CLI	Menu-driven NLP interface inside Google Colab
-🔐 User Authentication	Simulated login/register system using in-memory database
-🤖 Multi-Model NLP	NER, Emotion Detection, and Language Identification
-📊 Smart Output Parsing	Extracts the dominant emotion from model responses
-🧠 AI Models Used
-GPT-OSS-120B — Named Entity Recognition
+**✨ Key Features**
+
+| Feature                 | Description                                              |
+| ----------------------- | -------------------------------------------------------- |
+| 🖥 Interactive CLI      | Menu-driven NLP interface inside Google Colab            |
+| 🔐 User Authentication  | Simulated login/register system using in-memory database |
+| 🤖 Multi-Model NLP      | NER, Emotion Detection, and Language Identification      |
+| 📊 Smart Output Parsing | Extracts the dominant emotion from model responses       |
+
+
+**🧠 AI Models Used**
+**GPT-OSS-120B — Named Entity Recognition**
 
 Why this model?
 
@@ -60,7 +64,7 @@ Location
 
 Custom entity queries
 
-DistilBERT — Emotion Detection
+**DistilBERT — Emotion Detection**
 
 Traditional sentiment analysis only outputs:
 
@@ -84,7 +88,7 @@ Neutral
 
 This provides richer emotional insights from text.
 
-Python-LangDetect — Language Identification
+**Python-LangDetect — Language Identification**
 
 Chosen because it is:
 
@@ -96,7 +100,7 @@ optimized for character-level language detection
 
 Supports detection across 50+ languages.
 
-🧰 Tech Stack
+**🧰 Tech Stack**
 | Layer                   | Technology                  |
 | ----------------------- | --------------------------- |
 | Programming             | Python                      |
@@ -107,7 +111,7 @@ Supports detection across 50+ languages.
 | Interface               | CLI                         |
 
 
-🏗 Application Architecture
+**🏗 Application Architecture**
 
 User Input
      │
@@ -127,7 +131,7 @@ Response Processing
 User-Friendly Output
 
 
-⚙ Core Logic — Dominant Emotion Extraction
+**⚙ Core Logic — Dominant Emotion Extraction**
 
 Instead of printing raw JSON responses, the application extracts the emotion with the highest confidence score.
 
@@ -141,19 +145,20 @@ print(response['scored_labels'][index]['label'])
 This ensures clear and interpretable output for the user.
 
 
+**🔌 API Endpoints Used**
 
-🔌 API Endpoints Used
-Named Entity Recognition
+**Named Entity Recognition**
 client.entities(para, searched_entity=word)
 
-Emotion Detection
+**Emotion Detection**
 client.sentiment(para)
 
-Language Detection
+**Language Detection**
 client.langdetection(para)
 
 
-🚀 How to Run the Project
+**🚀 How to Run the Project**
+
 1️⃣ Open Google Colab
 
 Create a new notebook.
@@ -178,7 +183,7 @@ obj = NLPAPP()
 Use the CLI input prompts to navigate the system.
 
 
-📚 Key Learning Outcomes
+**📚 Key Learning Outcomes**
 
 This project demonstrates practical experience in:
 
@@ -192,7 +197,7 @@ JSON response parsing
 
 CLI application development
 
-🔮 Future Improvements
+**🔮 Future Improvements**
 
 Planned upgrades:
 
@@ -206,7 +211,7 @@ Planned upgrades:
 
 ➕ Add NLP tasks like text summarization and translation
 
-👨‍💻 Author
+**👨‍💻 Author**
 
 Rudra Tyagi
 
