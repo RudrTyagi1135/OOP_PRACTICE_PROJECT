@@ -1,11 +1,10 @@
 NLP-as-a-Service: Google Colab CLI Application
 
-Python Google Colab NLPCloud API-Integration OOP
 
 📌 Project Overview:
 This project is an interactive NLP dashboard built inside a Google Colab environment. It allows users to perform high-level NLP tasks like Named Entity Recognition, Language Detection, and Emotion Analysis through a structured command-line interface.
 
-Key Highlights
+Key Highlights:
 Interactive CLI: Designed a menu-driven interface optimized for the Colab input console.
 Secure Auth Simulation: Implemented a private database within the class to manage user registration and sessions.
 Multi-Model Integration: Leveraged three distinct AI models via NLPCloud for specialized tasks.
