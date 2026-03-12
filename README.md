@@ -38,15 +38,13 @@ This project highlights the following **AI engineering and backend skills**:
 ## 📂 Project Structure
 
 ```
-NLP_CLI_APP/
+OOP_PRACTICE_PROJECT/
 │
-├── nlp_app.py            # Main CLI application
-├── auth.py               # User authentication system
-├── nlp_models.py         # NLP API integration layer
-├── utils.py              # Helper functions
-│
-├── .gitignore
-└── README.md
+├── oop_project.ipynb      # Main notebook containing the NLP CLI application
+├── requirements.txt       # Project dependencies
+├── LICENSE                # MIT License
+├── .gitignore             # Git ignored files configuration
+└── README.md              # Project documentation
 ```
 
 ---
