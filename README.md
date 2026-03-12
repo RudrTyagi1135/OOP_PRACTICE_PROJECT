@@ -1,223 +1,279 @@
-**🚀 NLP-as-a-Service — CLI-Based NLP Dashboard**
+# 🚀 NLP-as-a-Service — CLI-Based NLP Dashboard
 
+An **interactive Natural Language Processing toolkit** built as a **menu-driven CLI application inside Google Colab**.
 
-An interactive Natural Language Processing toolkit built as a menu-driven CLI application inside Google Colab.
+The system allows users to perform advanced NLP tasks such as **Named Entity Recognition**, **Emotion Analysis**, and **Language Detection**.
 
-The system allows users to perform advanced NLP tasks such as:
+All NLP tasks are powered by **cloud-hosted AI models via NLPCloud APIs**.
 
-Named Entity Recognition
+This project demonstrates **API-based AI integration**, **CLI application design**, and **modular Python architecture**.
 
-Emotion Analysis
+---
 
-Language Detection
+## 🚀 Features
 
-All powered by cloud-hosted AI models via NLPCloud APIs.
+- 🖥 **Interactive CLI dashboard**
+- 🔐 **User authentication system**
+- 🤖 **Multi-model NLP integration**
+- 🌍 **Language detection for 50+ languages**
+- 📊 **Emotion detection with confidence scoring**
+- ⚡ **Cloud-based NLP model inference**
+- 📦 **Structured JSON response processing**
 
-**📌 Project Overview**
+---
 
-This project demonstrates how multiple NLP models can be integrated into a single interactive system.
+## 🧠 What This Project Demonstrates
 
-The application runs inside Google Colab and provides a structured command-line interface (CLI) where users can:
+This project highlights the following **AI engineering and backend skills**:
 
-🔐 register and authenticate
+- **Integration of multiple NLP models via APIs**
+- **Command-line interface application design**
+- **Object-Oriented Programming in Python**
+- **Parsing structured JSON responses**
+- **API-based AI services architecture**
+- **Building modular AI-powered tools**
 
-📝 submit text for analysis
+---
 
-🤖 receive structured NLP insights
+## 📂 Project Structure
 
-The project simulates a mini NLP platform, showcasing:
+```
+NLP_CLI_APP/
+│
+├── nlp_app.py            # Main CLI application
+├── auth.py               # User authentication system
+├── nlp_models.py         # NLP API integration layer
+├── utils.py              # Helper functions
+│
+├── .gitignore
+└── README.md
+```
 
-API integration
+---
 
-Object-Oriented Programming
+## ⚙️ Architecture Overview
 
-Response parsing logic
+The system follows a **modular CLI architecture**.
 
-**✨ Key Features**
+```
+User Input
+      │
+      ▼
+CLI Menu Interface
+      │
+      ▼
+Application Controller
+(NLPAPP Class)
+      │
+      ▼
+NLPCloud API
+      │
+      ▼
+Response Processing
+      │
+      ▼
+Formatted Output
+Displayed to User
+```
 
-| Feature                 | Description                                              |
-| ----------------------- | -------------------------------------------------------- |
-| 🖥 Interactive CLI      | Menu-driven NLP interface inside Google Colab            |
-| 🔐 User Authentication  | Simulated login/register system using in-memory database |
-| 🤖 Multi-Model NLP      | NER, Emotion Detection, and Language Identification      |
-| 📊 Smart Output Parsing | Extracts the dominant emotion from model responses       |
+### Design Principles
 
+- **Separation of Concerns**
+- **Reusable NLP modules**
+- **Clean API integration layer**
+- **User-friendly CLI interaction**
 
-**🧠 AI Models Used**
-**GPT-OSS-120B — Named Entity Recognition**
+---
+
+## 📊 AI Models Used
+
+### 🧠 GPT-OSS-120B — Named Entity Recognition
+
+This model is used for **entity extraction tasks**.
 
 Why this model?
 
-Large parameter size enables better contextual understanding
-
-Accurate extraction of complex entities
-
-Performs better than lightweight local NER models
+- Large parameter size enables **strong contextual understanding**
+- Accurate extraction of **complex entities**
+- Performs better than lightweight local models
 
 Entities detected include:
 
-Person
+- Person
+- Organization
+- Location
+- Custom entity queries
 
-Organization
+---
 
-Location
+### 🤖 DistilBERT — Emotion Detection
 
-Custom entity queries
+Traditional sentiment analysis usually returns:
 
-**DistilBERT — Emotion Detection**
+- Positive
+- Negative
 
-Traditional sentiment analysis only outputs:
+DistilBERT provides **fine-grained emotional classification** including:
 
-Positive
+- Joy
+- Sadness
+- Anger
+- Fear
+- Surprise
+- Neutral
 
-Negative
+This provides **richer emotional insights**.
 
-DistilBERT enables fine-grained emotional classification such as:
+---
 
-Joy
+### 🌍 Python-LangDetect — Language Identification
 
-Sadness
+This library was selected because it is:
 
-Anger
+- Lightweight
+- Fast
+- Optimized for **character-level language detection**
 
-Fear
+Supports **50+ languages**.
 
-Surprise
+---
 
-Neutral
+## ⚙ Core Logic — Dominant Emotion Extraction
 
-This provides richer emotional insights from text.
+Instead of printing raw JSON responses, the system extracts the **emotion with the highest confidence score**.
 
-**Python-LangDetect — Language Identification**
-
-Chosen because it is:
-
-lightweight
-
-fast
-
-optimized for character-level language detection
-
-Supports detection across 50+ languages.
-
-**🧰 Tech Stack**
-| Layer                   | Technology                  |
-| ----------------------- | --------------------------- |
-| Programming             | Python                      |
-| Development Environment | Google Colab                |
-| NLP API Provider        | NLPCloud                    |
-| Architecture            | Object-Oriented Programming |
-| Data Handling           | JSON Parsing                |
-| Interface               | CLI                         |
-
-
-**🏗 Application Architecture**
-
-User Input
-     │
-     ▼
-CLI Menu Interface
-     │
-     ▼
-NLPAPP Controller (Python Class)
-     │
-     ▼
-NLPCloud API
-     │
-     ▼
-Response Processing
-     │
-     ▼
-User-Friendly Output
-
-
-**⚙ Core Logic — Dominant Emotion Extraction**
-
-Instead of printing raw JSON responses, the application extracts the emotion with the highest confidence score.
-
+```python
 scores = [i['score'] for i in response['scored_labels']]
 
 index = sorted(list(enumerate(scores)), key=lambda x: x[1], reverse=True)[0][0]
 
 print(response['scored_labels'][index]['label'])
+```
 
+This ensures **clear and interpretable output** for users.
 
-This ensures clear and interpretable output for the user.
+---
 
+## 🔌 API Endpoints Used
 
-**🔌 API Endpoints Used**
+### Named Entity Recognition
 
-**Named Entity Recognition**
+```
 client.entities(para, searched_entity=word)
+```
 
-**Emotion Detection**
+---
+
+### Emotion Detection
+
+```
 client.sentiment(para)
+```
 
-**Language Detection**
+---
+
+### Language Detection
+
+```
 client.langdetection(para)
+```
 
+---
 
-**🚀 How to Run the Project**
+## 🛠 Installation
 
-1️⃣ Open Google Colab
+### Open Google Colab
 
 Create a new notebook.
 
-2️⃣ Install Required Library
+---
 
+### Install required library
+
+```bash
 !pip install nlpcloud
+```
 
-3️⃣ Paste Application Code
+---
 
-Copy the NLPAPP class implementation into a notebook cell.
+### Add application code
 
-4️⃣ Add Your API Key
+Copy the **NLPAPP class implementation** into a Colab cell.
 
-Insert your NLPCloud API token when initializing the client.
+---
 
-5️⃣ Start the Application
+### Add API key
 
+Insert your **NLPCloud API token** when initializing the client.
+
+---
+
+### Run the application
+
+```python
 obj = NLPAPP()
+```
 
+Use the CLI prompts to interact with the NLP system.
 
-Use the CLI input prompts to navigate the system.
+---
 
+## 🧪 Example Workflow
 
-**📚 Key Learning Outcomes**
+1. **User registers or logs into the system**
+2. User selects an **NLP task from the CLI menu**
+3. User submits **text for analysis**
+4. System sends request to **NLPCloud API**
+5. API response is **parsed and processed**
+6. Clean NLP results are displayed to the user
 
-This project demonstrates practical experience in:
+---
 
-Object-Oriented Programming in Python
+## 📈 Potential Improvements
 
-REST API integration
+Future enhancements could include:
 
-Multi-model AI system design
+- Secure password masking using **getpass**
+- Persistent user storage with **Google Drive**
+- Export results to **CSV or TXT files**
+- Convert CLI application into **Streamlit web interface**
+- Add additional NLP tasks such as:
+  - Text summarization
+  - Translation
+  - Keyword extraction
 
-JSON response parsing
+---
 
-CLI application development
+## 🧰 Tech Stack
 
-**🔮 Future Improvements**
+| Technology | Purpose |
+|-----------|---------|
+| Python | Programming language |
+| NLPCloud | NLP model API provider |
+| DistilBERT | Emotion detection |
+| GPT-OSS-120B | Named entity recognition |
+| Python-LangDetect | Language detection |
+| JSON | API response parsing |
+| Google Colab | Development environment |
+| CLI | User interface |
 
-Planned upgrades:
+---
 
-🔐 Password masking using getpass
+## 🎯 Learning Outcomes
 
-💾 Persistent user storage with Google Drive
+This project helped build understanding of:
 
-📁 Export results to CSV / TXT
+- **Object-Oriented Programming in Python**
+- **API-based AI service integration**
+- **Multi-model NLP system design**
+- **CLI application architecture**
+- **JSON response parsing and data processing**
 
-🌐 Convert CLI tool into Streamlit web app
+---
 
-➕ Add NLP tasks like text summarization and translation
+## 👤 Author
 
-**👨‍💻 Author**
+**Rudra Tyagi**
 
-Rudra Tyagi
-
-AI / ML Engineer
-AWS & Machine Learning Enthusiast
-
-📄 License
-
-This project is licensed under the MIT License.
+B.Tech Final Year Student  
+Aspiring **MLOps Engineer**
