@@ -274,4 +274,4 @@ This project helped build understanding of:
 **Rudra Tyagi**
 
 B.Tech Final Year Student  
-Aspiring **MLOps Engineer**
+**ML Systems / MLOps Engineer**
